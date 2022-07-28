@@ -1,41 +1,9 @@
 import Head from "next/head";
-import { useEffect, useState } from "react";
-import Header from "../components/Header";
+import FlagCard from "../components/FlagCard";
 import SearchBar from "../components/SearchBar";
 import FilterMenu from "../components/FilterMenu";
 
-const Home = () => {
-  const [theme, setTheme] = useState("light");
-
-  useEffect(() => {
-    const localTheme = localStorage.getItem("theme");
-    if (
-      localStorage.theme === "dark" ||
-      (!("theme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
-    ) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-    setTheme(localTheme);
-  }, []);
-
-  const handleThemeChange = () => {
-    const newTheme = theme === "dark" ? "light" : "dark";
-    localStorage.setItem("theme", newTheme);
-    if (
-      localStorage.theme === "dark" ||
-      (!("theme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
-    ) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-    setTheme(newTheme);
-  };
-
+const Home = ({ countries }) => {
   return (
     <div className="">
       <Head>
@@ -44,10 +12,16 @@ const Home = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className=" min-h-screen bg-veryLightGray dark:bg-veryDarkBlue">
-        <Header theme={theme} setTheme={handleThemeChange} />
-        <div className="flex flex-col gap-10">
-          <SearchBar />
-          <FilterMenu />
+        <div className="w-11/12 mx-auto pt-12 ">
+          <div className="flex flex-col md:flex-row gap-10 md:items-center justify-between ">
+            <SearchBar />
+            <FilterMenu />
+          </div>
+          <section className=" flex flex-col gap-4 pt-6 ">
+            {countries.map((country) => (
+              <FlagCard {...country} />
+            ))}
+          </section>
         </div>
       </main>
     </div>
@@ -55,3 +29,16 @@ const Home = () => {
 };
 
 export default Home;
+
+export async function getStaticProps() {
+  const res = await fetch(
+    "https://restcountries.com/v2/all?fields=name,capital,population,region,flags"
+  );
+  let countries = await res.json();
+
+  countries.sort((a, b) => b.population - a.population);
+  countries = countries.slice(0, 10);
+  return {
+    props: { countries },
+  };
+}

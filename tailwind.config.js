@@ -16,5 +16,10 @@ module.exports = {
       darkGray: "hsl(0, 0%, 52%)",
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addVariant }) {
+      addVariant("child", "& > *");
+      addVariant("child-hover", "& > *:hover");
+    },
+  ],
 };
