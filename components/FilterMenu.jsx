@@ -9,7 +9,9 @@ function FilterMenu({ setCountries }) {
 
   useEffect(() => {
     const getCountries = async () => {
-      const res = await fetch(`/api/getCountries?region=${region}`);
+      const res = await fetch(
+        `https://restcountries.com/v2/region/${region}?fields=name,capital,population,region,flags,cioc`
+      );
       const countries = await res.json();
       setCountries(countries);
     };
