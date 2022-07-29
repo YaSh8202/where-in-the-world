@@ -3,8 +3,11 @@ import FlagCard from "../components/FlagCard";
 import SearchBar from "../components/SearchBar";
 import FilterMenu from "../components/FilterMenu";
 import Link from "next/link";
+import { useState } from "react";
 
-const Home = ({ countries }) => {
+const Home = (props) => {
+  const [countries, setCountries] = useState(props.countries);
+
   return (
     <div className="">
       <Head>
@@ -16,12 +19,12 @@ const Home = ({ countries }) => {
         <div className="w-11/12 mx-auto pt-12 ">
           <div className="flex flex-col md:flex-row gap-10 md:items-center justify-between ">
             <SearchBar />
-            <FilterMenu />
+            <FilterMenu setCountries={setCountries} />
           </div>
           <section className=" flex flex-col md:flex-row flex-wrap md:justify-between  gap-8 py-12 ">
             {countries.map((country) => (
               <Link key={country.name} href={`${country.cioc}`}>
-                <a className="hover:scale-105 transition-all duration-150 ">
+                <a className="hover:scale-105 transition-all duration-150 ease-in ">
                   <FlagCard {...country} />
                 </a>
               </Link>
