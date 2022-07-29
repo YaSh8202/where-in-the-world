@@ -2,6 +2,7 @@ import Head from "next/head";
 import FlagCard from "../components/FlagCard";
 import SearchBar from "../components/SearchBar";
 import FilterMenu from "../components/FilterMenu";
+import Link from "next/link";
 
 const Home = ({ countries }) => {
   return (
@@ -17,9 +18,13 @@ const Home = ({ countries }) => {
             <SearchBar />
             <FilterMenu />
           </div>
-          <section className=" flex flex-col gap-4 pt-6 ">
+          <section className=" flex flex-col md:flex-row flex-wrap md:justify-between  gap-8 py-12 ">
             {countries.map((country) => (
-              <FlagCard {...country} />
+              <Link key={country.name} href={`${country.cioc}`}>
+                <a className="hover:scale-105 transition-all duration-150 ">
+                  <FlagCard {...country} />
+                </a>
+              </Link>
             ))}
           </section>
         </div>
@@ -32,12 +37,12 @@ export default Home;
 
 export async function getStaticProps() {
   const res = await fetch(
-    "https://restcountries.com/v2/all?fields=name,capital,population,region,flags"
+    "https://restcountries.com/v2/all?fields=name,capital,population,region,flags,cioc"
   );
   let countries = await res.json();
 
   countries.sort((a, b) => b.population - a.population);
-  countries = countries.slice(0, 10);
+  countries = countries.slice(0, 20);
   return {
     props: { countries },
   };
