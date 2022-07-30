@@ -15,7 +15,6 @@ const Home = (props) => {
   return (
     <div className="">
       <Head>
-        <html className="dark"></html>
         <title>Where in the world?</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>

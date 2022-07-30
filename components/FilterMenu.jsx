@@ -22,6 +22,7 @@ function FilterMenu({ setCountries }) {
     <div className="px-5 shadow-md rounded text-darkBlue dark:text-white py-5 child-hover:text-lightDarkBlue child-hover:font-medium absolute flex flex-col gap-1.5 bg-white dark:bg-darkBlue mt-1.5 w-56 child:cursor-pointer ">
       {regions.map((region) => (
         <div
+          key={region}
           onClick={() => {
             setRegion(region);
             setOpen(false);
