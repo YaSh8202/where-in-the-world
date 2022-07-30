@@ -16,7 +16,7 @@ const Home = (props) => {
     <div className="">
       <Head>
         <html className="dark"></html>
-        <title>Create Next App</title>
+        <title>Where in the world?</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className=" min-h-screen bg-veryLightGray dark:bg-veryDarkBlue">

@@ -1,4 +1,14 @@
-const fields = ["name", "capital", "population", "region", "flags", "cioc"];
+const fields = [
+  "name",
+  "nativeName",
+  "tld",
+  "capital",
+  "population",
+  "region",
+  "flags",
+  "cioc",
+  "subRegion",
+];
 
 export default async function handler(req, res) {
   const { query } = req;
