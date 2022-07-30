@@ -26,7 +26,7 @@ const Home = (props) => {
           </div>
           <section className=" flex flex-col md:flex-row flex-wrap md:justify-between gap-x-4 gap-y-10 py-12 ">
             {countries.map((country) => (
-              <Link key={country.name} href={`${country.cioc}`}>
+              <Link key={country.name} href={`${country.alpha3Code}`}>
                 <a className="hover:scale-105 transition-all duration-150 ease-in ">
                   <FlagCard {...country} />
                 </a>
@@ -43,7 +43,7 @@ export default Home;
 
 export async function getStaticProps() {
   const res = await fetch(
-    "https://restcountries.com/v2/all?fields=name,capital,population,region,flags,cioc"
+    "https://restcountries.com/v2/all?fields=name,capital,population,region,flags,alpha3Code"
   );
   let countries = await res.json();
 
