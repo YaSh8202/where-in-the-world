@@ -38,6 +38,7 @@ function CountryDetailsPage(props) {
           <div className="flex flex-col md:flex-row  md:gap-10 md:items-center md:justify-between ">
             <div className="relative w-full h-52 md:h-[24rem] md:py-40 mt-12  ">
               <Image
+                alt={`${name} flag`}
                 layout="fill"
                 className="w-full"
                 src={countryData.flags.svg}

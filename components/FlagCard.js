@@ -10,6 +10,7 @@ function FlagCard({ flags, name, capital, population, region }) {
     <div className="group bg-white dark:bg-darkBlue w-72 border-darkGray flex flex-col justify-between rounded-lg shadow-md  mx-auto md:mx-0 ">
       <div className=" h-40 w-full  ">
         <Image
+          alt={`${name} flag`}
           layout="intrinsic"
           width={288}
           height={175}

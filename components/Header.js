@@ -11,14 +11,15 @@ function Header({ theme, setTheme }) {
           onClick={() => {
             setTheme();
           }}
-          className="items-center flex gap-1.5"
+          className="items-center flex gap-1.5 dark:hover:bg-veryDarkBlue p-2 hover:rounded-lg hover:shadow-md  hover:bg-veryLightGray duration-150 "
         >
           {theme === "dark" ? (
             <MoonSolid className="w-[1.13rem]" />
           ) : (
             <MoonIcon className="w-[1.13rem]" />
           )}
-          <p className=" text-xs md:text-base font-semibold">Dark Mode</p>
+
+          <span className=" text-xs md:text-base font-semibold">Dark Mode</span>
         </button>
       </div>
     </nav>
