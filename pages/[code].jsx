@@ -139,9 +139,9 @@ export async function getServerSideProps(context) {
   const countryData = await res.json();
 
   let borderCountries = [];
-  if (countryData.borders) {
+  if (countryData?.borders) {
     const borderRes = await fetch(
-      `https://restcountries.com/v2/alpha?codes=${countryData?.borders?.join(
+      `https://restcountries.com/v2/alpha?codes=${countryData.borders.join(
         ","
       )}`
     );

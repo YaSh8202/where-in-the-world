@@ -137,7 +137,7 @@ Don't forget to give the project a star! Thanks again!
 <!-- CONTACT -->
 ## Contact
 
-Yash Bajaj - [@your_twitter](https://twitter.com/your_username) - email@example.com
+Yash Bajaj - [@yash](https://yashbajaj.vercel.app/) - bajajy82@gmail.com
 
 Project Link: [https://github.com/YaSh8202/where-in-the-world.git](https://github.com/YaSh8202/where-in-the-world.git)
 
@@ -152,9 +152,10 @@ Use this space to list resources you find helpful and would like to give credit 
 
 * [Hero Icons](https://heroicons.com/)
 * [Img Shields](https://shields.io)
+* [Tailwind CSS](https://tailwindcss.com/docs/installation)
 * [Choose an Open Source License](https://choosealicense.com)
-* [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
 * [Malven's Grid Cheatsheet](https://grid.malven.co/)
+<!-- * [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/) -->
 <!-- * [GitHub Pages](https://pages.github.com) -->
 <!-- * [Font Awesome](https://fontawesome.com) -->
 <!-- * [React Icons](https://react-icons.github.io/react-icons/search) -->
