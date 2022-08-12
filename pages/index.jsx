@@ -24,7 +24,7 @@ const Home = (props) => {
             <SearchBar setCountries={onNewCountries} />
             <FilterMenu setCountries={onNewCountries} />
           </div>
-          <section className=" flex flex-col md:flex-row flex-wrap md:justify-center gap-x-6 lg:gap-x-12 xl:gap-x-20 gap-y-10 py-12 ">
+          <section className=" flex flex-col md:flex-row items-start flex-wrap  gap-x-6 lg:gap-x-12 xl:gap-x-20 gap-y-10 py-12 ">
             {countries.map((country) => (
               <Link key={country.name} href={`${country.alpha3Code}`}>
                 <a className="hover:scale-105 transition-all duration-150 ease-in ">
@@ -48,7 +48,7 @@ export async function getStaticProps() {
   let countries = await res.json();
 
   countries.sort((a, b) => b.population - a.population);
-  countries = countries.slice(0, 20);
+  // countries = countries.slice(0, 20);
   return {
     props: { countries },
   };
