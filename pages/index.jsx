@@ -24,10 +24,10 @@ const Home = (props) => {
             <SearchBar setCountries={onNewCountries} />
             <FilterMenu setCountries={onNewCountries} />
           </div>
-          <section className=" flex flex-col md:flex-row items-start flex-wrap  gap-x-6 lg:gap-x-12 xl:gap-x-20 gap-y-10 py-12 ">
+          <section className=" flex flex-wrap  py-12 ">
             {countries.map((country) => (
               <Link key={country.name} href={`${country.alpha3Code}`}>
-                <a className="hover:scale-105 transition-all duration-150 ease-in ">
+                <a className="hover:scale-105 transition-all duration-150 ease-in w-[calc(100%-20px)] md:w-[calc(50%-40px)] lg:w-[calc(25%-40px)]  mx-5 my-8 h-[23rem]  ">
                   <FlagCard {...country} />
                 </a>
               </Link>
